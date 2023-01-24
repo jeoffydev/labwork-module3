@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScripts  3</title>
+</head>
+<body>
+    
+    <script>
+ 
+        // 1: What are the results of these expressions
+
+        // a: "" + 1 + 0 = 10
+        // b: "" - 1 + 0 = -1
+        // c: true + false = 1
+        // d: 6 / "3" = 2
+        // e: "2" * "3" = 6
+        // f: 4 + 5 + "px" = 9px
+        // g: "$" + 4 + 5 = $45
+        // h: "4" - 2 = 2
+        // i: "4px" - 2 = NaN
+        // j: "   -9   " + 5 = "   -9   5
+        // k: "   -9   " - 5 = -14
+        // l: null + 1 = 1
+        // m: undefined + 1 = NaN
+        // n: "  \t  \n" - 2 = -2
+
+        // 2: here's code that asks the user for two numbers and shows their sum.
+        //It works incorrectly. The output in the example below is 12 (for default prompt values)
+        //Why? Fix it. The result should be 3.
+
+function questionTwo() {
+ 
+    let a = prompt("First Number?", 1);
+    let b = prompt("Second Number?", 2); 
+    let x = parseInt(a);
+    let y = parseInt(b);
+    alert(x + y); //12
+}
+ 
+ 
+// 3: What will be the result for these expressions?
+
+// a: 5 > 4 = true
+// b: "apple" > "pineapple" = false
+// c: "2" > "12" = true
+// d: undefined == null = true
+// e: undefined === null = false
+// f: null == "\n0\n" = false
+// g: null === +"\n0\n" = false
+
+/*
+    4: Will an alert be shown?
+    yes
+    
+    if ("0") {
+        alert( 'Hello' );
+    }
+*/
+
+// 5: Rewrite this if using the conditional operator '?':
+
+function questionFive() {
+    let result;
+    let a = 5;
+    let b = 3;
+
+    // if (a + b < 4) {
+    //     result = 'Below';
+    // } else {
+    //     result = 'Over';
+    // }
+
+    result = (a + b < 4) ? 'below' : 'Over';
+
+    console.log(result)
+}
+ 
+// 6: Write the delay method with arrow function, delay(func,ms)
+
+function questionSix() {
+    //Write delay arrow function here
+
+    const hello = ( who ) => console.log('Hello ' + who);
+
+    const delay = (a, b) => {
+        setTimeout(() => {
+            return a;
+        }, b)
+    };
+    return delay(hello, 300); 
+}
+ 
+// 7: Write the function isEmpty(obj) which returns true if the object has no properties, false otherwise.
+
+function questionSeven() {
+    //Write isEmpty function here
+
+    let schedule = {};
+
+    const isEmpty = (schedule) => {
+        for(var sched in schedule) {
+            if(Object.prototype.hasOwnProperty.call(schedule, sched)) {
+                return false;
+            }
+        } 
+        return true;
+    }
+
+    alert( isEmpty(schedule) ) // true
+
+    schedule['8:30'] = "get up";
+
+    alert (isEmpty(schedule) ) // false
+}
+ 
+// 8: There's a ladder object that allows you to go up and down
+
+function questionEight() {
+    let ladder = {
+        step: 0,
+        up() {
+            this.step++;
+        },
+        down() {
+            this.step--;
+        },
+        showStep: function() { //shows the current step
+            console.log( this.step )
+        }
+    }
+
+    //Modify the code of up, down, and showStep to make the calls chainable,
+    //like this:
+
+    ladder.up()
+    ladder.down()
+    ladder.up()
+    ladder.showStep(); // 1
+}
+
+
+
+// 9: Create New Accumulator
+//Create a constructor function Accumulator(startingValue).
+//Object that it creates should:
+
+//  1: Store the "current value" in the property value. The starting value
+//  is set to the argument of the constructor startingValue
+//
+//  2: The read() method should use prompt to read a new number and add it to value
+
+//In other words, the value property is the sum of all user-entered
+//values with the initial value startingValue
+
+//Here's the demo of the code:
+
+    class Accumulator {
+        constructor(name) {
+            this.name = name;
+        }
+
+        read() {
+            console.log(`${this.name}`);
+        }
+ 
+    }
+
+    function questionNine() {
+        //Write constructor function here
+
+        let accumulator = new Accumulator(1); //initial value 1
+
+        accumulator.read(); //adds the user-entered value
+
+        accumulator.read(); //adds the user-entered value
+         
+    } 
+    </script>
+
+
+</body>
+</html>
